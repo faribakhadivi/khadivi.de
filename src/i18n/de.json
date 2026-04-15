@@ -1,0 +1,71 @@
+{
+  "site": {
+    "title": "Fariba Khadivi — Architektin & Energieberaterin",
+    "description": "Architektur mit Schwerpunkt energetische Sanierung, Effizienzhäuser und regenerative Energien."
+  },
+  "nav": {
+    "home": "Start",
+    "office": "Büro",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "name": "Fariba Khadivi",
+    "title": "Architektin & Energieberaterin",
+    "subtitle": "Architektur mit Schwerpunkt energetische Sanierung, Effizienzhäuser und regenerative Energien.",
+    "cta": "Projekte ansehen",
+    "contact": "Kontakt aufnehmen"
+  },
+  "office": {
+    "title": "Büro",
+    "heading": "Über das Büro",
+    "intro": "Planung und Ausführung mit Fokus auf Energieeffizienz und Nachhaltigkeit.",
+    "experience_title": "Erfahrung & Kompetenz",
+    "experience_text": "Langjährige Erfahrung als planende und ausführende Architektin mit Schwerpunkt auf energetischer Sanierung von Bestandsgebäuden, Planung von Effizienzhäusern und Einsatz regenerativer Energien.",
+    "services_title": "Leistungen",
+    "services": [
+      "Energetische Sanierung",
+      "Effizienzhausplanung",
+      "Energieberatung",
+      "Einsatz regenerativer Energien",
+      "Bauplanung und Baubegleitung",
+      "Fördermittelberatung"
+    ]
+  },
+  "projects": {
+    "title": "Projekte",
+    "heading": "Referenzprojekte",
+    "intro": "Ausgewählte Projekte aus den Bereichen energetische Sanierung, Neubau und regenerative Energien.",
+    "view_project": "Projekt ansehen",
+    "back": "Zurück zu Projekten"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "heading": "Kontakt aufnehmen",
+    "intro": "Haben Sie Fragen zu energetischer Sanierung, Neubauplanung oder Fördermöglichkeiten? Kontaktieren Sie mich gerne.",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "subject": "Betreff",
+      "message": "Nachricht",
+      "send": "Nachricht senden",
+      "success": "Vielen Dank für Ihre Nachricht. Ich melde mich zeitnah bei Ihnen.",
+      "error": "Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es erneut."
+    },
+    "email_label": "E-Mail",
+    "links_title": "Weiterführende Informationen",
+    "links": [
+      { "label": "BAFA — Bundesförderung für effiziente Gebäude", "url": "https://www.bafa.de/DE/Energie/Effiziente_Gebaeude/effiziente_gebaeude_node.html" },
+      { "label": "KfW — Energieeffizient Bauen und Sanieren", "url": "https://www.kfw.de/inlandsfoerderung/Privatpersonen/Bestehende-Immobilie/Energieeffizient-Sanieren/" },
+      { "label": "GEG — Gebäudeenergiegesetz", "url": "https://www.gesetze-im-internet.de/geg/" },
+      { "label": "dena — Deutsche Energie-Agentur", "url": "https://www.dena.de/" }
+    ]
+  },
+  "footer": {
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz",
+    "copyright": "Alle Rechte vorbehalten."
+  },
+  "lang_switch": "English"
+}

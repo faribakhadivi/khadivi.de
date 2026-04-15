@@ -1,0 +1,41 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  year: string;
+  thumbnail: string;
+  href: string;
+}
+
+const { title, description, category, year, thumbnail, href } = Astro.props;
+---
+
+<a href={href} class="group block">
+  <article class="overflow-hidden">
+    <!-- Thumbnail -->
+    <div class="aspect-[4/3] overflow-hidden bg-gray-100">
+      <img
+        src={thumbnail}
+        alt={title}
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Info -->
+    <div class="pt-4 pb-6">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs uppercase tracking-wider text-gray-400">{category}</span>
+        <span class="text-xs text-gray-300">|</span>
+        <span class="text-xs text-gray-400">{year}</span>
+      </div>
+      <h3 class="text-lg font-light text-black group-hover:text-gray-600 transition-colors">
+        {title}
+      </h3>
+      <p class="mt-2 text-sm text-gray-500 line-clamp-2">
+        {description}
+      </p>
+    </div>
+  </article>
+</a>

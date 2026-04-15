@@ -1,0 +1,5 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#D4D4D4"/>
+  <text x="400" y="290" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#737373">Projektbild 2</text>
+  <text x="400" y="320" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#737373">800 × 600</text>
+</svg>

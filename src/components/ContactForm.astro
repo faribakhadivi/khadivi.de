@@ -1,0 +1,143 @@
+---
+import type { Lang } from "@/i18n";
+import { t } from "@/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "de" } = Astro.props;
+const i = t(lang);
+---
+
+<form
+  id="contact-form"
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class="space-y-6"
+>
+  <!-- Web3Forms access key — replace YOUR_ACCESS_KEY with real key -->
+  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+  <input type="hidden" name="subject" value="Neue Nachricht von khadivi.de" />
+  <input type="hidden" name="from_name" value="Khadivi.de Kontaktformular" />
+  <!-- Honeypot spam protection -->
+  <input type="checkbox" name="botcheck" class="hidden" />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Name -->
+    <div>
+      <label for="name" class="block text-sm text-gray-600 mb-2">
+        {i.contact.form.name} *
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 text-gray-800 text-sm focus:outline-none focus:border-gray-400 transition-colors"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email" class="block text-sm text-gray-600 mb-2">
+        {i.contact.form.email} *
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 text-gray-800 text-sm focus:outline-none focus:border-gray-400 transition-colors"
+      />
+    </div>
+  </div>
+
+  <!-- Phone -->
+  <div>
+    <label for="phone" class="block text-sm text-gray-600 mb-2">
+      {i.contact.form.phone}
+    </label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      class="w-full px-4 py-3 bg-gray-50 border border-gray-200 text-gray-800 text-sm focus:outline-none focus:border-gray-400 transition-colors"
+    />
+  </div>
+
+  <!-- Subject -->
+  <div>
+    <label for="subject-field" class="block text-sm text-gray-600 mb-2">
+      {i.contact.form.subject} *
+    </label>
+    <input
+      type="text"
+      id="subject-field"
+      name="subject_field"
+      required
+      class="w-full px-4 py-3 bg-gray-50 border border-gray-200 text-gray-800 text-sm focus:outline-none focus:border-gray-400 transition-colors"
+    />
+  </div>
+
+  <!-- Message -->
+  <div>
+    <label for="message" class="block text-sm text-gray-600 mb-2">
+      {i.contact.form.message} *
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="6"
+      required
+      class="w-full px-4 py-3 bg-gray-50 border border-gray-200 text-gray-800 text-sm focus:outline-none focus:border-gray-400 transition-colors resize-y"
+    ></textarea>
+  </div>
+
+  <!-- Submit -->
+  <div>
+    <button
+      type="submit"
+      class="px-8 py-3 bg-gray-900 text-white text-sm tracking-wide uppercase hover:bg-black transition-colors"
+    >
+      {i.contact.form.send}
+    </button>
+  </div>
+
+  <!-- Status messages -->
+  <div id="form-success" class="hidden text-sm text-gray-600 bg-gray-50 p-4 border border-gray-200">
+    {i.contact.form.success}
+  </div>
+  <div id="form-error" class="hidden text-sm text-red-600 bg-red-50 p-4 border border-red-200">
+    {i.contact.form.error}
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const successEl = document.getElementById("form-success");
+  const errorEl = document.getElementById("form-error");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    successEl?.classList.add("hidden");
+    errorEl?.classList.add("hidden");
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        successEl?.classList.remove("hidden");
+        form.reset();
+      } else {
+        errorEl?.classList.remove("hidden");
+      }
+    } catch {
+      errorEl?.classList.remove("hidden");
+    }
+  });
+</script>

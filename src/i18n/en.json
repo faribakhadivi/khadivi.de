@@ -1,0 +1,71 @@
+{
+  "site": {
+    "title": "Fariba Khadivi — Architect & Energy Consultant",
+    "description": "Architecture specializing in energy-efficient renovation, high-efficiency buildings, and renewable energy."
+  },
+  "nav": {
+    "home": "Home",
+    "office": "Office",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Fariba Khadivi",
+    "title": "Architect & Energy Consultant",
+    "subtitle": "Architecture specializing in energy-efficient renovation, high-efficiency buildings, and renewable energy.",
+    "cta": "View Projects",
+    "contact": "Get in Touch"
+  },
+  "office": {
+    "title": "Office",
+    "heading": "About the Practice",
+    "intro": "Planning and execution with a focus on energy efficiency and sustainability.",
+    "experience_title": "Experience & Expertise",
+    "experience_text": "Years of experience as a planning and executing architect specializing in energy-efficient renovation of existing buildings, design of high-efficiency houses, and integration of renewable energy systems.",
+    "services_title": "Services",
+    "services": [
+      "Energy-Efficient Renovation",
+      "High-Efficiency Building Design",
+      "Energy Consulting",
+      "Renewable Energy Integration",
+      "Construction Planning & Supervision",
+      "Funding & Subsidy Consulting"
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "heading": "Reference Projects",
+    "intro": "Selected projects from the areas of energy-efficient renovation, new construction, and renewable energy.",
+    "view_project": "View Project",
+    "back": "Back to Projects"
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "Get in Touch",
+    "intro": "Do you have questions about energy-efficient renovation, new construction planning, or funding opportunities? Feel free to contact me.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "success": "Thank you for your message. I will get back to you shortly.",
+      "error": "Unfortunately, your message could not be sent. Please try again."
+    },
+    "email_label": "Email",
+    "links_title": "Further Information",
+    "links": [
+      { "label": "BAFA — Federal Funding for Efficient Buildings", "url": "https://www.bafa.de/DE/Energie/Effiziente_Gebaeude/effiziente_gebaeude_node.html" },
+      { "label": "KfW — Energy-Efficient Construction and Renovation", "url": "https://www.kfw.de/inlandsfoerderung/Privatpersonen/Bestehende-Immobilie/Energieeffizient-Sanieren/" },
+      { "label": "GEG — Building Energy Act", "url": "https://www.gesetze-im-internet.de/geg/" },
+      { "label": "dena — German Energy Agency", "url": "https://www.dena.de/" }
+    ]
+  },
+  "footer": {
+    "impressum": "Legal Notice",
+    "datenschutz": "Privacy Policy",
+    "copyright": "All rights reserved."
+  },
+  "lang_switch": "Deutsch"
+}

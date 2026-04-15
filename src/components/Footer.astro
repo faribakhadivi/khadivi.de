@@ -1,0 +1,42 @@
+---
+import type { Lang } from "@/i18n";
+import { t, getLocalizedPath } from "@/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "de" } = Astro.props;
+const i = t(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-gray-200 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <!-- Left -->
+      <div>
+        <p class="text-sm font-light text-black">Fariba Khadivi</p>
+        <p class="text-xs text-gray-500 mt-1">
+          {lang === "de" ? "Architektin & Energieberaterin" : "Architect & Energy Consultant"}
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex gap-6 text-xs text-gray-500">
+        <a href={getLocalizedPath("/impressum", lang)} class="hover:text-black transition-colors">
+          {i.footer.impressum}
+        </a>
+        <a href={getLocalizedPath("/datenschutz", lang)} class="hover:text-black transition-colors">
+          {i.footer.datenschutz}
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-gray-200">
+      <p class="text-xs text-gray-400">
+        &copy; {year} Fariba Khadivi. {i.footer.copyright}
+      </p>
+    </div>
+  </div>
+</footer>

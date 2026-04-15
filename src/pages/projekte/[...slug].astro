@@ -1,0 +1,96 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { t } from "@/i18n";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const projekte = await getCollection("projekte");
+  return projekte
+    .filter((p) => p.data.lang === "de")
+    .map((projekt) => ({
+      params: { slug: projekt.id.replace("de/", "") },
+      props: { projekt },
+    }));
+}
+
+const { projekt } = Astro.props;
+const lang = "de";
+const i = t(lang);
+const { Content } = await render(projekt);
+---
+
+<Layout lang={lang} title={`${projekt.data.title} — Fariba Khadivi`}>
+  <!-- Back link -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-6 pt-8">
+      <a
+        href="/projekte"
+        class="text-sm text-gray-500 hover:text-black transition-colors"
+      >
+        &larr; {i.projects.back}
+      </a>
+    </div>
+  </section>
+
+  <!-- Project Header -->
+  <section class="bg-white">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs uppercase tracking-wider text-gray-400">{projekt.data.category}</span>
+        <span class="text-xs text-gray-300">|</span>
+        <span class="text-xs text-gray-400">{projekt.data.year}</span>
+        <span class="text-xs text-gray-300">|</span>
+        <span class="text-xs text-gray-400">{projekt.data.location}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-light text-black">
+        {projekt.data.title}
+      </h1>
+      <p class="mt-4 text-lg text-gray-500 font-light">
+        {projekt.data.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Thumbnail -->
+  <section class="bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6 py-8">
+      <div class="aspect-[16/9] bg-gray-100 overflow-hidden">
+        <img
+          src={projekt.data.thumbnail}
+          alt={projekt.data.title}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="bg-white">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <article class="prose prose-gray max-w-none
+        prose-headings:font-light prose-headings:text-black
+        prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4
+        prose-p:text-gray-600 prose-p:leading-relaxed
+        prose-li:text-gray-600
+        prose-strong:text-gray-800
+      ">
+        <Content />
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gray-50 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto px-6 py-12 text-center">
+      <p class="text-gray-500 mb-4">
+        {lang === "de" ? "Interesse an einem ähnlichen Projekt?" : "Interested in a similar project?"}
+      </p>
+      <a
+        href="/kontakt"
+        class="inline-block px-8 py-3 bg-gray-900 text-white text-sm tracking-wide uppercase hover:bg-black transition-colors"
+      >
+        {i.hero.contact}
+      </a>
+    </div>
+  </section>
+</Layout>

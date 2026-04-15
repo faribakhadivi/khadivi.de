@@ -1,0 +1,91 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { t } from "@/i18n";
+
+const lang = "en";
+const i = t(lang);
+---
+
+<Layout lang={lang} title={`${i.office.title} — Fariba Khadivi`}>
+  <!-- Page Header -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <p class="text-sm uppercase tracking-widest text-gray-400 mb-4">
+        Fariba Khadivi
+      </p>
+      <h1 class="text-3xl md:text-5xl font-light text-black">
+        {i.office.heading}
+      </h1>
+      <p class="mt-6 text-lg text-gray-500 font-light max-w-2xl">
+        {i.office.intro}
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div>
+          <h2 class="text-xl font-light text-black mb-6">
+            {i.office.experience_title}
+          </h2>
+          <p class="text-gray-600 leading-relaxed">
+            {i.office.experience_text}
+          </p>
+          <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+            [This text will be completed by Fariba — additional details about professional career, qualifications, and special competencies can be added here.]
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-light text-black mb-6">
+            {i.office.services_title}
+          </h2>
+          <ul class="space-y-4">
+            {i.office.services.map((service: string) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                <span class="text-gray-600">{service}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualifications placeholder -->
+  <section class="bg-gray-50 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <h2 class="text-xl font-light text-black mb-6">
+        Qualifications
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-600">
+        <div>
+          <h3 class="font-medium text-gray-800 mb-2">Education</h3>
+          <p>[Degrees and education — to be provided by Fariba]</p>
+        </div>
+        <div>
+          <h3 class="font-medium text-gray-800 mb-2">Certifications</h3>
+          <p>[Energy consultant certification, chamber membership, etc. — to be provided by Fariba]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-white border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+      <p class="text-lg text-gray-500 font-light mb-6">
+        Interested in working together?
+      </p>
+      <a
+        href="/en/contact"
+        class="inline-block px-8 py-3 bg-gray-900 text-white text-sm tracking-wide uppercase hover:bg-black transition-colors"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { t } from "@/i18n";
+import { getCollection } from "astro:content";
+
+const lang = "en";
+const i = t(lang);
+
+const projects = (await getCollection("projekte"))
+  .filter((p) => p.data.lang === "en")
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<Layout lang={lang} title={`${i.projects.title} — Fariba Khadivi`}>
+  <!-- Page Header -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <p class="text-sm uppercase tracking-widest text-gray-400 mb-4">
+        Fariba Khadivi
+      </p>
+      <h1 class="text-3xl md:text-5xl font-light text-black">
+        {i.projects.heading}
+      </h1>
+      <p class="mt-6 text-lg text-gray-500 font-light max-w-2xl">
+        {i.projects.intro}
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            category={project.data.category}
+            year={project.data.year}
+            thumbnail={project.data.thumbnail}
+            href={`/en/projects/${project.id.replace("en/", "")}`}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

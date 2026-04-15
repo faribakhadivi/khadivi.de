@@ -1,0 +1,73 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ContactForm from "@/components/ContactForm.astro";
+import { t } from "@/i18n";
+
+const lang = "de";
+const i = t(lang);
+---
+
+<Layout lang={lang} title={`${i.contact.title} — Fariba Khadivi`}>
+  <!-- Page Header -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <p class="text-sm uppercase tracking-widest text-gray-400 mb-4">
+        Fariba Khadivi
+      </p>
+      <h1 class="text-3xl md:text-5xl font-light text-black">
+        {i.contact.heading}
+      </h1>
+      <p class="mt-6 text-lg text-gray-500 font-light max-w-2xl">
+        {i.contact.intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <!-- Contact Form -->
+        <div class="lg:col-span-2">
+          <ContactForm lang={lang} />
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-10">
+          <!-- Email -->
+          <div>
+            <h3 class="text-sm uppercase tracking-wider text-gray-400 mb-3">
+              {i.contact.email_label}
+            </h3>
+            <a
+              href="mailto:architektin-fariba@khadivi.de"
+              class="text-gray-700 hover:text-black transition-colors"
+            >
+              architektin-fariba@khadivi.de
+            </a>
+          </div>
+
+          <!-- External Links -->
+          <div>
+            <h3 class="text-sm uppercase tracking-wider text-gray-400 mb-3">
+              {i.contact.links_title}
+            </h3>
+            <ul class="space-y-3">
+              {i.contact.links.map((link: { label: string; url: string }) => (
+                <li>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm text-gray-500 hover:text-black transition-colors"
+                  >
+                    {link.label} &nearr;
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

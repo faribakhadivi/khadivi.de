@@ -1,0 +1,105 @@
+---
+import type { Lang } from "@/i18n";
+import { t, getLocalizedPath, getTranslatedPath } from "@/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "de" } = Astro.props;
+const i = t(lang);
+const currentPath = Astro.url.pathname;
+const targetLang = lang === "de" ? "en" : "de";
+const switchPath = getTranslatedPath(currentPath, targetLang);
+
+const navItems = [
+  { label: i.nav.office, href: getLocalizedPath("/buero", lang) },
+  { label: i.nav.projects, href: getLocalizedPath("/projekte", lang) },
+  { label: i.nav.contact, href: getLocalizedPath("/kontakt", lang) },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- Logo / Name -->
+    <a
+      href={getLocalizedPath("/", lang)}
+      class="text-lg font-light tracking-tight text-black hover:text-gray-700 transition-colors"
+    >
+      Fariba Khadivi
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-8">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "text-sm tracking-wide uppercase transition-colors",
+            currentPath === item.href
+              ? "text-black font-medium"
+              : "text-gray-500 hover:text-black",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href={switchPath}
+        class="text-sm text-gray-400 hover:text-black transition-colors ml-4 border-l border-gray-200 pl-4"
+      >
+        {i.lang_switch}
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 text-gray-600 hover:text-black"
+      aria-label="Menu"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-gray-200 bg-white"
+  >
+    <div class="px-6 py-4 flex flex-col gap-4">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "text-sm tracking-wide uppercase",
+            currentPath === item.href
+              ? "text-black font-medium"
+              : "text-gray-500",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href={switchPath}
+        class="text-sm text-gray-400 pt-2 border-t border-gray-100"
+      >
+        {i.lang_switch}
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-16"></div>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>
