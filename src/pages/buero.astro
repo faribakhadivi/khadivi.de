@@ -42,14 +42,21 @@ const i = t(lang);
           <h2 class="text-xl font-light text-black mb-6">
             {i.office.services_title}
           </h2>
-          <ul class="space-y-4">
-            {i.office.services.map((service: string) => (
-              <li class="flex items-start gap-3">
-                <span class="mt-2 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
-                <span class="text-gray-600">{service}</span>
-              </li>
+          <div class="space-y-8">
+            {i.office.service_categories.map((category) => (
+              <div>
+                <h3 class="text-lg font-medium text-black mb-4">{category.title}</h3>
+                <ul class="space-y-3">
+                  {category.items.map((item: string) => (
+                    <li class="flex items-start gap-3">
+                      <span class="mt-2 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                      <span class="text-gray-600">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

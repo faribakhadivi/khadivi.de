@@ -23,13 +23,21 @@
     "experience_title": "Erfahrung & Kompetenz",
     "experience_text": "Langjährige Erfahrung als planende und ausführende Architektin mit Schwerpunkt auf energetischer Sanierung von Bestandsgebäuden, Planung von Effizienzhäusern und Einsatz regenerativer Energien.",
     "services_title": "Leistungen",
-    "services": [
-      "Energetische Sanierung",
-      "Effizienzhausplanung",
-      "Energieberatung",
-      "Einsatz regenerativer Energien",
-      "Bauplanung und Baubegleitung",
-      "Fördermittelberatung"
+    "service_categories": [
+      {
+        "title": "Architektur",
+        "items": [
+          "Beratung zur konzeptionellen Planung",
+          "Planung und Koordination der Bauprozesse bei der Umsetzung"
+        ]
+      },
+      {
+        "title": "Energieberatung",
+        "items": [
+          "Energetische Sanierung durch Einsatz regenerativer Energie",
+          "Individuelle Beratung bis zur Fördermittelbeantragung"
+        ]
+      }
     ]
   },
   "projects": {

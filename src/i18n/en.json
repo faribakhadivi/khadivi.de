@@ -23,13 +23,21 @@
     "experience_title": "Experience & Expertise",
     "experience_text": "Years of experience as a planning and executing architect specializing in energy-efficient renovation of existing buildings, design of high-efficiency houses, and integration of renewable energy systems.",
     "services_title": "Services",
-    "services": [
-      "Energy-Efficient Renovation",
-      "High-Efficiency Building Design",
-      "Energy Consulting",
-      "Renewable Energy Integration",
-      "Construction Planning & Supervision",
-      "Funding & Subsidy Consulting"
+    "service_categories": [
+      {
+        "title": "Architecture",
+        "items": [
+          "Conceptual planning and consulting",
+          "Planning and coordination of construction processes"
+        ]
+      },
+      {
+        "title": "Energy Consulting",
+        "items": [
+          "Energy-efficient renovation through renewable energy",
+          "Individual consulting through to funding applications"
+        ]
+      }
     ]
   },
   "projects": {
